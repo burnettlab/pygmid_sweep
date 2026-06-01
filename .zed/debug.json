@@ -1,0 +1,34 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "adapter": "Debugpy",
+    "label": "Pygmid Sweep - GF180",
+    "request": "launch",
+    "python": "/mnt/shared/pygmid/.linux_venv/bin/python",
+    "args": ["--config", "$TECHSWEEP_DIR"],
+    "cwd": "/mnt/shared/share/pdk/gf180mcu/",
+    "program": "/mnt/shared/pygmid_sweep/src/pygmid_sweep/main.py",
+    "env": {
+      "PDK": "gf180mcuD",
+      "PDK_ROOT": "/mnt/shared/share/pdk/gf180mcu",
+      "TECHSWEEP_DIR": "/mnt/shared/share/pdk/gf180mcu/techsweeps",
+    },
+  },
+  {
+    "adapter": "Debugpy",
+    "label": "Pygmid Sweep - IHP130",
+    "request": "launch",
+    "python": "/mnt/shared/pygmid/.linux_venv/bin/python",
+    "args": ["--config", "$TECHSWEEP_DIR"],
+    "cwd": "/mnt/shared/share/pdk/IHP-Open-PDK/",
+    "program": "/mnt/shared/pygmid_sweep/src/pygmid_sweep/main.py",
+    "env": {
+      "PDK": "ihp-sg13g2",
+      "PDK_ROOT": "/mnt/shared/share/pdk/IHP-Open-PDK",
+      "TECHSWEEP_DIR": "/mnt/shared/share/pdk/IHP-Open-PDK/techsweeps",
+    },
+  },
+]

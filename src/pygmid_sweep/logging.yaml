@@ -1,0 +1,82 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: "%(asctime)s - %(module)s.%(levelname)s - %(message)s"
+  detailed:
+    format: "%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s"
+  colored:
+    "()": coloredlogs.ColoredFormatter
+    format: "%(asctime)s %(module)s.%(levelname)s- %(message)s"
+    datefmt: "%H:%M:%S"
+    field_styles:
+      asctime:
+        color: green
+      hostname:
+        color: magenta
+      levelname:
+        bold: true
+        color: black
+      name:
+        color: blue
+      programname:
+        color: cyan
+      username:
+        color: yellow
+    level_styles:
+      debug:
+        color: cyan
+      info:
+        color: white
+      warning:
+        color: yellow
+        bright: true
+      error:
+        color: red
+        bold: true
+      critical:
+        color: red
+        bold: true
+        background: white
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: NOTSET
+    formatter: colored
+    stream: ext://sys.stdout
+
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: WARNING
+    formatter: detailed
+    filename: pygmid-sweep.log
+    maxBytes: 10485760 # 10MB
+    backupCount: 5
+    encoding: utf8
+
+loggers:
+  tqdm_loggable:
+    level: NOTSET
+    handlers: [console]
+    propagate: false
+
+  pygmid:
+    level: NOTSET
+    handlers: [file]
+    propagate: false
+
+  PySpice:
+    level: NOTSET
+    handlers: [file]
+    propagate: false
+
+  pygmid_sweep:
+    level: NOTSET
+    handlers: [console, file]
+    propagate: false
+
+  "":
+    level: INFO
+    handlers: [console]
