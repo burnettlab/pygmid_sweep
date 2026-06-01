@@ -3,7 +3,7 @@ name = "pygmid-sweep"
 version = "0.1.0"
 description = "PyGmid sweep tool"
 readme = "README.md"
-requires-python = ">=3.11.9"
+requires-python = ">=3.11"
 dependencies = [
     "auto-all>=1.4.1",
     "numpy>=2.4.6",
