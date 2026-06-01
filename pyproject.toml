@@ -8,7 +8,6 @@ dependencies = [
     "auto-all>=1.4.1",
     "numpy>=2.4.6",
     "psf-utils>=1.10",
-    "pygmid",
     "pyspice",
     "tqdm>=4.67.3",
     "tqdm-loggable>=0.4.1",
@@ -22,4 +21,3 @@ package = true
 
 [tool.uv.sources]
 pyspice = { git = "https://github.com/burnettlab/PySpice.git" }
-pygmid = { git = "https://github.com/burnettlab/pygmid.git" }
