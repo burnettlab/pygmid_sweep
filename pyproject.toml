@@ -14,12 +14,12 @@ dependencies = [
     "tqdm-loggable>=0.4.1",
 ]
 
-[tool.uv.sources]
-pygmid = { path = "../pygmid", editable = true }
-pyspice = { path = "../PySpice", editable = true }
-
 [project.scripts]
 pygmid-sweep = "pygmid_sweep.main:cli"
 
 [tool.uv]
 package = true
+
+[tool.uv.sources]
+pyspice = { git = "https://github.com/burnettlab/PySpice.git" }
+pygmid = { git = "https://github.com/burnettlab/pygmid.git" }

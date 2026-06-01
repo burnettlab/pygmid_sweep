@@ -58,7 +58,7 @@ wheels = [
 [[package]]
 name = "blab-pyutils"
 version = "0.1.0"
-source = { editable = "../blab_pyutils" }
+source = { git = "https://github.com/burnettlab/blab_pyutils.git#1b365acbd6c34aaf053634a40b1c528eca2aa0cc" }
 dependencies = [
     { name = "adjusttext" },
     { name = "auto-all" },
@@ -67,17 +67,6 @@ dependencies = [
     { name = "pint" },
     { name = "pip" },
     { name = "pyyaml" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "adjusttext", specifier = ">=1.3.0" },
-    { name = "auto-all", specifier = ">=1.4.1" },
-    { name = "colorspacious", specifier = ">=1.1.2" },
-    { name = "ipython", specifier = ">=9.10.1" },
-    { name = "pint", specifier = ">=0.25.3" },
-    { name = "pip", specifier = ">=26.0.1" },
-    { name = "pyyaml", specifier = ">=6.0.3" },
 ]
 
 [[package]]
@@ -1056,11 +1045,11 @@ wheels = [
 
 [[package]]
 name = "pip"
-version = "26.1.1"
+version = "26.1.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b6/48/cb9b7a682f6fe01a4221e1728941dd4ac3cd9090a17db3779d6ff490b602/pip-26.1.1.tar.gz", hash = "sha256:d36762751d156a4ee895de8af39aa0abeeeb577f93a2eca6ab62467bbf0f8a78", size = 1840400, upload-time = "2026-05-04T19:02:21.248Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/01/91/47e7d486260f618783899587af63ccf7980fb60245c3e63dd4571c6b57ad/pip-26.1.2.tar.gz", hash = "sha256:f49cd134c61cf2fd75e0ce2676db03e4054504a5a4986d00f8299ae632dc4605", size = 1840799, upload-time = "2026-05-31T17:33:58.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3a/eb/fea4d1d51c49832120f7f285d07306db3960f423a2612c6057caf3e8196f/pip-26.1.1-py3-none-any.whl", hash = "sha256:99cb1c2899893b075ff56e4ed0af55669a955b49ad7fb8d8603ecdaf4ed653fb", size = 1812777, upload-time = "2026-05-04T19:02:18.9Z" },
+    { url = "https://files.pythonhosted.org/packages/5d/95/6b5cb3461ea5673ba0995989746db58eb18b91b54dbf331e72f569540946/pip-26.1.2-py3-none-any.whl", hash = "sha256:382ff9f685ee3bc25864f820aa50505825f10f5458ffff07e30a6d96e5715cab", size = 1813144, upload-time = "2026-05-31T17:33:56.772Z" },
 ]
 
 [[package]]
@@ -1186,7 +1175,7 @@ wheels = [
 [[package]]
 name = "pygmid"
 version = "1.3.0"
-source = { editable = "../pygmid" }
+source = { git = "https://github.com/burnettlab/pygmid.git#6db396f05caadbf82054a391d4bec6686b15691f" }
 dependencies = [
     { name = "auto-all" },
     { name = "blab-pyutils" },
@@ -1199,23 +1188,6 @@ dependencies = [
     { name = "pyyaml" },
     { name = "scipy" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "auto-all", specifier = ">=1.4.1" },
-    { name = "blab-pyutils", editable = "../blab_pyutils" },
-    { name = "blab-pyutils", marker = "extra == 'units'", editable = "../blab_pyutils" },
-    { name = "coloredlogs", specifier = ">=15.0.1" },
-    { name = "h5py", specifier = ">=3.16.0" },
-    { name = "matplotlib", specifier = ">=3.10.8" },
-    { name = "numpy", specifier = ">=2.4.4" },
-    { name = "pandas", specifier = ">=3.0.2" },
-    { name = "prettytable", specifier = ">=3.17.0" },
-    { name = "pygmid-sweep", marker = "extra == 'sweep'", editable = "." },
-    { name = "pyyaml", specifier = ">=6.0.3" },
-    { name = "scipy", specifier = ">=1.17.1" },
-]
-provides-extras = ["units", "sweep"]
 
 [[package]]
 name = "pygmid-sweep"
@@ -1236,8 +1208,8 @@ requires-dist = [
     { name = "auto-all", specifier = ">=1.4.1" },
     { name = "numpy", specifier = ">=2.4.6" },
     { name = "psf-utils", specifier = ">=1.10" },
-    { name = "pygmid", editable = "../pygmid" },
-    { name = "pyspice", editable = "../PySpice" },
+    { name = "pygmid", git = "https://github.com/burnettlab/pygmid.git" },
+    { name = "pyspice", git = "https://github.com/burnettlab/PySpice.git" },
     { name = "tqdm", specifier = ">=4.67.3" },
     { name = "tqdm-loggable", specifier = ">=0.4.1" },
 ]
@@ -1262,7 +1234,8 @@ wheels = [
 
 [[package]]
 name = "pyspice"
-source = { editable = "../PySpice" }
+version = "1.5"
+source = { git = "https://github.com/burnettlab/PySpice.git#a9686e0c0d2e84c661dc91fe90da2d395bae26ff" }
 dependencies = [
     { name = "cffi" },
     { name = "matplotlib" },
@@ -1273,34 +1246,6 @@ dependencies = [
     { name = "requests" },
     { name = "scipy" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "beautifulsoup4", marker = "extra == 'dev'", specifier = ">=4.12.3" },
-    { name = "cffi", specifier = ">=1.14" },
-    { name = "check-manifest", marker = "extra == 'dev'", specifier = ">=0.48" },
-    { name = "flake8", marker = "extra == 'dev'", specifier = ">=4.0.1" },
-    { name = "invoke", marker = "extra == 'dev'", specifier = ">=2.2.1" },
-    { name = "matplotlib", specifier = ">=3.2" },
-    { name = "numpy", specifier = ">=1.18" },
-    { name = "pelican", marker = "extra == 'dev'", specifier = ">=4.6.0" },
-    { name = "pint", specifier = ">=0.17" },
-    { name = "ply", specifier = ">=3.10" },
-    { name = "pygithub", marker = "extra == 'dev'", specifier = ">=1.56" },
-    { name = "pylint", marker = "extra == 'dev'", specifier = ">=2.3.0" },
-    { name = "pyterate", marker = "extra == 'dev'", specifier = ">=2.1.5" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0.1" },
-    { name = "pyyaml", specifier = ">=5.3" },
-    { name = "requests", specifier = ">=2.23" },
-    { name = "requests", marker = "extra == 'dev'", specifier = ">=2.27.1" },
-    { name = "scipy", specifier = ">=1.4" },
-    { name = "sphinx", marker = "extra == 'dev'", specifier = ">=4.3.2" },
-    { name = "sphinxcontrib-getthecode", marker = "extra == 'dev'", specifier = ">=1.2.1" },
-    { name = "tox", marker = "extra == 'dev'", specifier = ">=3.28.0" },
-    { name = "twine", marker = "extra == 'dev'", specifier = ">=3.8.0" },
-    { name = "wheel", marker = "extra == 'dev'", specifier = ">=0.37.1" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "python-dateutil"
