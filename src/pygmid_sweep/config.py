@@ -133,6 +133,8 @@ class SweepConfig(ABC):
         Precision of the width dimension [microns]. Defaults to `0.005`.
     simulator_options : dict
         Options to pass to the simulator. Defaults to `{}`.
+    sweep_parallel : bool
+        Whether to run the sweep in parallel using multiprocessing. Defaults to `False`.
     debug : bool
         Whether to enable debug mode. Defaults to `False`.
 
@@ -172,6 +174,8 @@ class SweepConfig(ABC):
     # Simulator parameters
     simulator: Callable[["SweepConfig"], Simulator] = field(init=False, repr=False)
     simulator_options: Tuple[Tuple[str, ...], ...] = field(init=False, default=())
+    sweep_parallel: bool = field(init=False, default=False)
+    debug: bool = field(init=False, default=False)
 
     # Output variables
     _valid: set[str] = field(init=False, default_factory=set)
@@ -198,8 +202,6 @@ class SweepConfig(ABC):
         "STH",
         "SFL",
     )
-
-    debug: bool = field(init=False, default=False)
 
     def __post_init__(self):
         self.savefile = Path(self.savefile)
@@ -296,7 +298,9 @@ class SweepConfig(ABC):
                 self._get_outvar_mapping().items(),
             )
         )
-        assert result, "No valid output variable mapping found"
+        if len(result) == 0:
+            LOGGER.warning("No valid output variable mapping found")
+
         assert all(
             all(callable(v) or v in [-1, 0, 1] for v in result[key].values())
             for key in result

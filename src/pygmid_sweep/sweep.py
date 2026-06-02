@@ -67,6 +67,7 @@ def run(config_file_path: os.PathLike, skip_sweep: bool = False) -> None:
                 LOGGER.info(f"Skipping sweep: {cfg.savefile}")
                 continue
             else:
+                # sim.run()
                 try:
                     LOGGER.info(f"Sweeping {cfg.__class__.__name__} ({cfg.model})")
                     save_sweep(sim.run(), cfg)
