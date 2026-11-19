@@ -10,5 +10,5 @@ wheels/
 .venv
 
 # IDEs
-.vscode/
-.zed/
+.vscode/*
+.zed/*

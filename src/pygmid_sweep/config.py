@@ -143,10 +143,10 @@ class SweepConfig(ABC):
 
     # Parameters for sweep
     savefile: os.PathLike = field(init=False)
-    length: Tuple[float] = field(init=False, metadata={"unit": "micron"})
-    vgs: Tuple[float] = field(init=False, metadata={"unit": "V"})
-    vds: Tuple[float] = field(init=False, metadata={"unit": "V"})
-    vsb: Tuple[float] = field(init=False, metadata={"unit": "V"})
+    length: Tuple[float, ...] = field(init=False, metadata={"unit": "micron"})
+    vgs: Tuple[float, ...] = field(init=False, metadata={"unit": "V"})
+    vds: Tuple[float, ...] = field(init=False, metadata={"unit": "V"})
+    vsb: Tuple[float, ...] = field(init=False, metadata={"unit": "V"})
 
     # Information about the sweep (also saved to the output file)
     info: str = field(init=False)

@@ -1,3 +1,5 @@
+"""Spectre simulator class for technology sweeps."""
+
 import concurrent.futures
 import glob
 import logging
@@ -5,7 +7,7 @@ import os
 import re
 import subprocess
 from dataclasses import dataclass, field
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
 import numpy as np
 import psf_utils
@@ -26,6 +28,7 @@ class SpectreSimulator(Simulator):
     *** THIS CLASS NEEDS UPDATING AFTER CHANGES TO CONFIG AND SIMULATOR CLASSES
     """
 
+    simulator_command: str = "spectre"
     netlist_ext: str = ".scs"
     args: List[str] = field(init=False)
 
@@ -40,6 +43,12 @@ class SpectreSimulator(Simulator):
             f"{self._sweep_dir}/psf",
         ]
         super().__post_init__()
+
+    def get_simulator_options(self) -> dict[str, Any]:
+        return dict(
+            temperature=(self.config.temp - 273.15) @ u_Degree,
+            simulator="spectre",
+        )
 
     @property
     def output(self) -> str:
